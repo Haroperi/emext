@@ -1,0 +1,25 @@
+EmExt 顔文字抽出ツール
+
+= About
+入力文字列から顔文字を検出し、<em>タグで囲って出力します。
+
+= Requirements
+本ソフトウェアを使用するためには、以下のソフトウェアが必要です。
+- Ruby (version 1.8.7 or 1.9.*)
+- YamCha and TinySVM
+- MeCab
+
+= References
+本ソフトウェアを作成するにあたって、以下の論文を参考にしました。
+
+Yuki Tanaka, Hiroya Takamura and Manabu Okumura.
+Extraction and Classification of Facemarks with Kernel Methods.
+In IUI '05 Proceedings of the 10th international conference on Intelligent user interfaces,
+Pages 28-34, 2005
+
+= Author
+College of Information Science
+University of Tsukuba
+Mitsuo NAKAJIMA
+haroperitan@gmail.com
+
