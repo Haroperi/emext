@@ -1,24 +1,27 @@
 #coding:utf-8
+require 'pp'
+
+# メモ: 「# 1」と書かれている行を全部消せば、顔文字だけが抽出されます。
 
 def each_emoticon(obj, &block)
 	ret = []
 	if obj['emoticons'].size == 0
-		ret << obj['text']
+		ret << obj['text'] # 1
 	else
 		i = 0
 		obj['emoticons'].each do |range|
 			if i < range[0]
-				ret << obj['text'][i..range[0]-1]
+				ret << obj['text'].split(//)[i..range[0]-1].join # 1
 				i = range[0]
 			end
 			fail unless i == range[0]
 
-			ret << (yield obj['text'][range[0]..range[1]])
+			ret << (yield obj['text'].split(//)[range[0]..range[1]].join)
 			i = range[1]+1
 		end
 
-		tail = obj['text'][i..-1]
-		ret << tail if tail != nil && tail != ''
+		tail = obj['text'].split(//)[i..-1].join
+		ret << tail if tail != nil && tail != '' # 1
 	end
 	ret
 end
