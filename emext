@@ -1,3 +1,0 @@
-#!/bin/sh
-ruby -Ku features.rb $1|yamcha -m emoticon.model|ruby -Ku extraction.rb
-

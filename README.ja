@@ -10,11 +10,11 @@ EmExt 顔文字抽出ツール
 - MeCab
 
 = 内容物 =
-./emext
-	./features.rb、./extraction.rbを用いて顔文字が出現する箇所を<em></em>で囲います。
-./features.rb
+emext-unix.sh, emext.bat
+	lib/features.rb、lib/extraction.rbを用いて顔文字が出現する箇所を<em></em>で囲います。
+lib/features.rb
 	YamChaに食わせるためのフォーマットに、行単位で変換します。
-./extraction.rb
+lib/extraction.rb
 	YamChaからの出力を受け取り、顔文字の箇所を<em> </em>で囲って出力します。
 
 = References =
