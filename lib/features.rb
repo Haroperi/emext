@@ -1,5 +1,9 @@
 #coding:utf-8
-require 'mecab.rb'
+if RUBY_VERSION < "1.9"
+  require './lib/mecab.rb'
+else
+  require_relative './mecab.rb'
+end
 
 def getSBEI word
 	if word.size == 1
