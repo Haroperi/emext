@@ -1,16 +1,14 @@
 #coding:utf-8
 
-# メモ: 「# 1」と書かれている行を全部消せば、顔文字だけが抽出されます。
-
-def each_emoticon(obj, &block)
+def each_emoticon(obj, only=false, &block)
   ret = []
   if obj['emoticons'].size == 0
-    ret << obj['text'] # 1
+    ret << obj['text'] if !only
   else
     i = 0
     obj['emoticons'].each do |range|
       if i < range[0]
-        ret << obj['text'].split(//)[i..range[0]-1].join # 1
+        ret << obj['text'].split(//)[i..range[0]-1].join if !only
         i = range[0]
       end
       fail unless i == range[0]
@@ -20,7 +18,7 @@ def each_emoticon(obj, &block)
     end
 
     tail = obj['text'].split(//)[i..-1].join
-    ret << tail if tail != nil && tail != '' # 1
+    ret << tail if tail != nil && tail != '' if !only
   end
   ret
 end
@@ -68,6 +66,6 @@ def each_sentence &block
 end
 
 each_sentence do |s|
-  puts (each_emoticon(s) { |e| "<em>#{e}</em>"}).join
+  puts (each_emoticon(s, false) { |e| "<em>#{e}</em>"}).join
 end
 
